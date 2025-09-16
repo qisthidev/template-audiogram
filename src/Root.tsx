@@ -1,6 +1,8 @@
 import { Composition, staticFile } from "remotion";
 import { Audiogram } from "./Audiogram/Main";
 import { audiogramSchema } from "./Audiogram/schema";
+import { YouTubeShort } from "./YouTubeShort/Main";
+import { youTubeShortSchema } from "./YouTubeShort/schema";
 import { getSubtitles } from "./helpers/fetch-captions";
 import { FPS } from "./helpers/ms-to-frame";
 import { parseMedia } from "@remotion/media-parser";
@@ -53,6 +55,70 @@ export const RemotionRoot: React.FC = () => {
             durationInFrames: Math.floor(
               (slowDurationInSeconds - props.audioOffsetInSeconds) * FPS,
             ),
+            props: {
+              ...props,
+              captions,
+            },
+            fps: FPS,
+          };
+        }}
+      />
+      <Composition
+        id="YouTubeShort"
+        component={YouTubeShort}
+        width={1080}
+        height={1920}
+        schema={youTubeShortSchema}
+        defaultProps={{
+          // YouTube video settings
+          videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          startTime: 0,
+          endTime: 30,
+          // audio settings
+          audioFileUrl: staticFile("audio.wav"),
+          audioOffsetInSeconds: 0,
+          // captions settings
+          captions: null,
+          captionsFileName: staticFile("captions.json"),
+          onlyDisplayCurrentSentence: true,
+          captionsTextColor: "rgba(255, 255, 255, 0.93)",
+          // layout
+          layout: "vertical",
+          titleText: "YouTube Short Demo",
+          titleColor: "rgba(255, 255, 255, 0.93)",
+          backgroundColor: "#000000",
+          // visualizer settings
+          visualizer: {
+            type: "oscilloscope",
+            color: "#F4B941",
+            numberOfSamples: "64" as const,
+            windowInSeconds: 0.1,
+            posterization: 3,
+            amplitude: 4,
+            padding: 50,
+          },
+        }}
+        calculateMetadata={async ({ props }) => {
+          const captions = props.captionsFileName
+            ? await getSubtitles(props.captionsFileName)
+            : null;
+
+          let durationInSeconds = props.endTime - props.startTime;
+
+          // If audio file is provided, use its duration
+          if (props.audioFileUrl) {
+            const { slowDurationInSeconds } = await parseMedia({
+              src: props.audioFileUrl,
+              acknowledgeRemotionLicense: true,
+              fields: {
+                slowDurationInSeconds: true,
+              },
+            });
+            durationInSeconds = slowDurationInSeconds - props.audioOffsetInSeconds;
+          }
+
+          return {
+            durationInFrames: Math.floor(durationInSeconds * FPS),
             props: {
               ...props,
               captions,

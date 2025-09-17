@@ -6,7 +6,8 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "extract:audio": "bun scripts/extract-audio.ts"
   },
   "author": "Marcus Stenbeck, Jonny Burger, Alex Fernandez",
   "repository": {},

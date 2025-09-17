@@ -69,6 +69,18 @@ The template will use [`useWindowedAudioData()`](/docs/use-windowed-audio-data) 
 
 Otherwise, the waveform of the whole audio needs to be fetched, which may be slow.
 
+## Extract audio from MP4 with Bun + ffmpeg
+
+Requires `ffmpeg` and `bun` installed.
+
+```bash
+# WAV (default) to public/audio.wav
+npm run extract:audio -- input.mp4
+
+# Explicit output and bitrate (for mp3/m4a)
+npm run extract:audio -- input.mp4 public/audio.mp3 --bitrate 192k
+```
+
 ## Docs
 
 Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).

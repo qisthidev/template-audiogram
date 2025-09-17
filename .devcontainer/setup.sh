@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -6,23 +6,25 @@ echo "🚀 Setting up Audiogram Template environment..."
 
 # Update package index
 echo "📦 Updating package index..."
-sudo apk update
+sudo apt update
 
 # Install ffmpeg, build tools, and Chrome dependencies
 echo "🎵 Installing dependencies..."
-sudo apk add --no-cache \
+sudo apt install -y \
     ffmpeg \
     git-lfs \
     cmake \
-    make \
-    gcc \
-    g++ \
-    musl-dev \
-    linux-headers \
-    nss \
-    chromium \
-    bash \
-    curl
+    build-essential \
+    libnss3 \
+    libatk-bridge2.0-0t64 \
+    libdrm2 \
+    libxkbcommon0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libgbm1 \
+    libxss1 \
+    libasound2t64
 
 # Install bun
 echo "🥖 Installing bun..."

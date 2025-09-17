@@ -1,6 +1,6 @@
 {
   "name": "Audiogram Template",
-  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
   // Configure machine specs for Codespaces
   "hostRequirements": {
@@ -31,7 +31,13 @@
 
   // Ensure we have access to necessary tools
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {}
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/michidk/devcontainers-features/bun:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    "ghcr.io/devcontainers-extra/features/ffmpeg-apt-get:1": {}
   },
 
   // Set the default user

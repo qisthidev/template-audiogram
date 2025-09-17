@@ -52,7 +52,7 @@ async function askQuestions(
 
 async function transcribeAudio(options: TranscriptionOptions) {
   const WHISPER_VERSION = process.platform === "win32" ? "1.6.0" : "1.7.4";
-  const WHISPER_MODEL: WhisperModel = "medium";
+  const WHISPER_MODEL: WhisperModel = "large-v3-turbo";
   const WHISPER_PATH = path.join(process.cwd(), "whisper.cpp");
 
   await installWhisperCpp({

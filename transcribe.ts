@@ -24,21 +24,30 @@ interface TranscriptionOptions {
 async function askQuestions(
   rl: readline.Interface,
 ): Promise<TranscriptionOptions> {
-  const question = (query: string): Promise<string> => {
+  const question = (query: string, defaultValue: string): Promise<string> => {
     return new Promise((resolve) => {
-      rl.question(query, resolve);
+      const timeout = setTimeout(() => {
+        console.log(`\n⏰ No input received, using default: ${defaultValue}`);
+        resolve(defaultValue);
+      }, 2000);
+
+      rl.question(query, (answer) => {
+        clearTimeout(timeout);
+        resolve(answer || defaultValue);
+      });
     });
   };
 
   // Ask for audio file path
-  const audioPath =
-    (await question(
-      `❓ Path to audio file (default: ${DEFAULT_AUDIO_PATH}): `,
-    )) || DEFAULT_AUDIO_PATH;
+  const audioPath = await question(
+    `❓ Path to audio file (default: ${DEFAULT_AUDIO_PATH}): `,
+    DEFAULT_AUDIO_PATH
+  );
 
   // Ask for speech start time - this helps avoid false triggers from background music/noise
   const speechStartStr = await question(
     `❓ At what second does the actual speech begin? (default: ${SPEECH_START_SECONDS_DEFAULT}): `,
+    SPEECH_START_SECONDS_DEFAULT.toString()
   );
   const speechStartsAtSecond = speechStartStr
     ? parseFloat(speechStartStr)

@@ -1,0 +1,42 @@
+{
+  "name": "Audiogram Template",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  // Configure machine specs for Codespaces
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "16gb",
+    "storage": "32gb"
+  },
+
+  // Install dependencies
+  "onCreateCommand": ".devcontainer/setup.sh",
+
+  // Run transcription after creation
+  "postCreateCommand": ".devcontainer/post-create.sh",
+
+  // Forward common ports
+  "forwardPorts": [3000, 8080],
+
+  // VS Code extensions that might be useful
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json"
+      ]
+    }
+  },
+
+  // Ensure we have access to necessary tools
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  // Set the default user
+  "remoteUser": "vscode"
+}

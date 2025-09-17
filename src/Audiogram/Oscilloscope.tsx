@@ -5,6 +5,7 @@ import {
 import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { useWindowedAudioDataIfPossible } from "../helpers/use-windowed-audio-data-if-possible";
+import { FASTSTACK_THEME } from "./theme";
 
 const height = 120;
 const container: React.CSSProperties = {
@@ -86,12 +87,27 @@ export const Oscilloscope: React.FC<{
 
   return (
     <OscilloscopeContainer padding={padding}>
+      <defs>
+        <linearGradient id="faststackWave" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor={FASTSTACK_THEME.colors.waveGradientStart} />
+          <stop offset="100%" stopColor={FASTSTACK_THEME.colors.waveGradientEnd} />
+        </linearGradient>
+        <filter id="faststackGlow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
       <path
         strokeLinecap="round"
+        strokeLinejoin="round"
         fill="none"
-        stroke={waveColor}
-        strokeWidth={10}
+        stroke={waveColor || "url(#faststackWave)"}
+        strokeWidth={Math.min(16, Math.max(6, 6 + (waveform.reduce((a, b) => a + Math.abs(b), 0) / waveform.length) * 20))}
         d={p}
+        filter={"url(#faststackGlow)"}
       />
     </OscilloscopeContainer>
   );

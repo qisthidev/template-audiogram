@@ -8,9 +8,9 @@ echo "🚀 Setting up Audiogram Template environment..."
 echo "📦 Updating package list..."
 sudo apt update
 
-# Install ffmpeg
-echo "🎵 Installing ffmpeg..."
-sudo apt install -y ffmpeg git-lfs
+# Install ffmpeg and Chrome dependencies
+echo "🎵 Installing dependencies..."
+sudo apt install -y ffmpeg git-lfs libnss3 libatk-bridge2.0-0t64 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libxss1 libasound2t64
 
 # Install bun
 echo "🥖 Installing bun..."

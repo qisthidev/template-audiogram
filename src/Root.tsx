@@ -19,8 +19,8 @@ export const RemotionRoot: React.FC = () => {
           audioOffsetInSeconds: 0,
           audioFileUrl: staticFile("audio.wav"),
           // podcast data
-          coverImageUrl: staticFile("podcast-cover.jpeg"),
-          titleText: "Ep 550 - Supper Club × Remotion React",
+          coverImageUrl: staticFile("podcast-cover.png"),
+          titleText: "FastStack",
           titleColor: "rgba(186, 186, 186, 0.93)",
           // captions settings
           captions: null,

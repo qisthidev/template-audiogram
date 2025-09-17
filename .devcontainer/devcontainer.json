@@ -1,6 +1,6 @@
 {
   "name": "Audiogram Template",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
 
   // Configure machine specs for Codespaces
   "hostRequirements": {

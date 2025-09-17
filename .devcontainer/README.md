@@ -1,55 +1,48 @@
 # Devcontainer Setup
 
-This repository is configured with GitHub Codespaces for automatic environment setup.
+This devcontainer is configured for Alpine Linux to provide a lightweight and efficient development environment for the Audiogram Template project.
 
-## What happens automatically
+## What gets installed automatically:
 
-When you create a new Codespace, the following will be set up automatically:
+### System Dependencies (Alpine packages)
+- `ffmpeg` - Audio/video processing
+- `git-lfs` - Git Large File Storage
+- `cmake` - Build system for whisper.cpp
+- `make`, `gcc`, `g++` - Build tools for compilation
+- `musl-dev`, `linux-headers` - Development headers
+- `nss` - Network Security Services
+- `chromium` - Headless browser for Remotion
+- `bash` - Bash shell
+- `curl` - HTTP client
 
-1. **Machine Specifications**: 4-core CPU, 16GB RAM, 32GB storage
-2. **Dependencies Installation**:
-   - ffmpeg (for audio processing)
-   - cmake and build-essential (for whisper.cpp compilation)
-   - bun (JavaScript runtime)
-   - Chrome dependencies (for Remotion)
-   - Project dependencies via `bun install`
-3. **Transcription**: If `public/audio.wav` exists, it will be transcribed automatically using whisper.cpp
+### Development Tools
+- **Bun** - Fast JavaScript runtime and package manager
+- **Project dependencies** - All npm packages via `bun install`
 
-## Manual steps after Codespace creation
+## Post-creation process:
 
-1. **Place your audio file**: Copy your audio file to `public/audio.wav`
-2. **Run transcription** (if not done automatically): `bun transcribe.ts`
-3. **Start development server**: `bun dev` to preview your audiogram
-4. **Generate final video**: `bun render` to create your final audiogram video
+1. **Automatic whisper.cpp setup** - The container will attempt to set up and compile whisper.cpp for audio transcription
+2. **Transcription** - If `public/audio.wav` exists, it will be automatically transcribed
+3. **Error handling** - If compilation fails, you can manually run `bun transcribe.ts` later
 
-## Available commands
+## Manual commands:
 
-- `bun transcribe.ts` - Transcribe audio file to generate captions
-- `bun dev` - Start Remotion development server
-- `bun render` - Render final audiogram video
-- `bun extract-audio` - Extract audio from video files
+```sh
+# Install dependencies
+bun install
 
-## Configuration files
+# Transcribe audio
+bun transcribe.ts
 
-- `.devcontainer/devcontainer.json`: Main devcontainer configuration
-- `.devcontainer/setup.sh`: Dependency installation script (runs on container creation)
-- `.devcontainer/post-create.sh`: Post-creation automation script (runs after setup)
+# Start development server
+bun dev
 
-## Troubleshooting
+# Build the project
+bun run build
+```
 
-If the automatic setup fails:
+## Alpine-specific notes:
 
-1. **Rebuild container**: Use "Codespaces: Rebuild Container" command
-2. **Manual setup**: Run `.devcontainer/setup.sh` manually
-3. **Path issues**: Ensure bun is in PATH: `export PATH="$HOME/.bun/bin:$PATH"`
-4. **Dependencies**: Install manually: `bun install`
-5. **Whisper.cpp issues**:
-   - Delete whisper.cpp folder: `rm -rf whisper.cpp`
-   - Ensure cmake is installed: `sudo apt install cmake build-essential`
-   - Run transcription again: `bun transcribe.ts`
-
-## First-time setup notes
-
-- whisper.cpp compilation may take 5-10 minutes on first transcription
-- The container includes all necessary build tools for audio processing
-- VS Code extensions for TypeScript and formatting are pre-installed
+- Uses `apk` package manager instead of `apt`
+- Lightweight musl libc instead of glibc
+- Optimized for smaller container size and faster startup

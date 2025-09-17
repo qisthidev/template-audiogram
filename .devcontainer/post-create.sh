@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
@@ -23,7 +23,7 @@ if [ -f "public/audio.wav" ]; then
         echo "✅ Transcription complete!"
     else
         echo "❌ Transcription failed. You can try running 'bun transcribe.ts' manually later."
-        echo "💡 Make sure cmake and build-essential are installed if whisper.cpp compilation fails."
+        echo "💡 Make sure cmake and build tools are installed if whisper.cpp compilation fails."
     fi
 else
     echo "⚠️ No audio file found at public/audio.wav"

@@ -10,7 +10,7 @@ sudo apt update
 
 # Install ffmpeg
 echo "🎵 Installing ffmpeg..."
-sudo apt install -y ffmpeg
+sudo apt install -y ffmpeg git-lfs
 
 # Install bun
 echo "🥖 Installing bun..."

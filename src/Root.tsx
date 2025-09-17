@@ -4,6 +4,7 @@ import { audiogramSchema } from "./Audiogram/schema";
 import { getSubtitles } from "./helpers/fetch-captions";
 import { FPS } from "./helpers/ms-to-frame";
 import { parseMedia } from "@remotion/media-parser";
+import { FASTSTACK_THEME } from "./Audiogram/theme";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -21,16 +22,16 @@ export const RemotionRoot: React.FC = () => {
           // podcast data
           coverImageUrl: staticFile("podcast-cover.png"),
           titleText: "FastStack",
-          titleColor: "rgba(186, 186, 186, 0.93)",
+          titleColor: FASTSTACK_THEME.colors.textPrimary,
           // captions settings
           captions: null,
           captionsFileName: staticFile("captions.json"),
           onlyDisplayCurrentSentence: true,
-          captionsTextColor: "rgba(255, 255, 255, 0.93)",
+          captionsTextColor: FASTSTACK_THEME.colors.captionText,
           // visualizer settings
           visualizer: {
             type: "oscilloscope",
-            color: "#F4B941",
+            color: "",
             numberOfSamples: "64" as const,
             windowInSeconds: 0.1,
             posterization: 3,

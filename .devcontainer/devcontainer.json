@@ -31,9 +31,6 @@
 
   // Ensure we have access to necessary tools
   "features": {
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    },
     "ghcr.io/devcontainers/features/git:1": {}
   },
 

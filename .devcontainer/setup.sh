@@ -33,12 +33,19 @@ export PATH="$HOME/.bun/bin:$PATH"
 
 # Make sure bun is available in future sessions
 echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$HOME/.bun/bin:$PATH"' >> ~/.profile
+
+# Verify bun installation
+if [ -f "$HOME/.bun/bin/bun" ]; then
+    echo "✅ Bun installed successfully"
+    $HOME/.bun/bin/bun --version
+else
+    echo "❌ Bun installation failed"
+    exit 1
+fi
 
 # Install project dependencies
 echo "📚 Installing project dependencies..."
-# Source the updated bashrc to get bun in PATH
-source ~/.bashrc || true
-# Use full path to bun just to be safe
 $HOME/.bun/bin/bun install
 
 echo "✅ Setup complete! Environment ready for audiogram generation."

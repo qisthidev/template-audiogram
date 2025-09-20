@@ -66,6 +66,8 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
             padding: `${AMPLIKIT_THEME.spacing}px`,
             fontFamily: AMPLIKIT_THEME.typography.brandFont,
             position: "relative",
+            boxSizing: "border-box",
+            overflow: "hidden", // Prevent any content from escaping
           }}
         >
           {/* Header section with branding */}
@@ -74,7 +76,8 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
               display: "flex",
               justifyContent: "space-between",
               alignItems: "flex-start",
-              marginBottom: AMPLIKIT_THEME.spacing * 0.5,
+              marginBottom: AMPLIKIT_THEME.spacing * 0.3, // Reduced spacing
+              flexShrink: 0, // Prevent shrinking
             }}
           >
             {/* Brand logo/text */}
@@ -119,11 +122,12 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              marginBottom: AMPLIKIT_THEME.spacing,
+              marginBottom: AMPLIKIT_THEME.spacing * 0.6, // Reduced spacing
               backgroundColor: AMPLIKIT_THEME.colors.surface,
               borderRadius: `${AMPLIKIT_THEME.radii.card}px`,
-              padding: `${AMPLIKIT_THEME.spacing * 0.75}px`,
+              padding: `${AMPLIKIT_THEME.spacing * 0.6}px`, // Reduced padding
               border: `1px solid rgba(255, 107, 53, 0.1)`,
+              flexShrink: 0, // Prevent shrinking
             }}
           >
             <Img
@@ -188,9 +192,10 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
             style={{
               backgroundColor: AMPLIKIT_THEME.colors.surface,
               borderRadius: `${AMPLIKIT_THEME.radii.card}px`,
-              padding: `${AMPLIKIT_THEME.spacing * 0.5}px`,
-              marginBottom: AMPLIKIT_THEME.spacing * 0.75,
+              padding: `${AMPLIKIT_THEME.spacing * 0.4}px`, // Reduced padding
+              marginBottom: AMPLIKIT_THEME.spacing * 0.5, // Reduced spacing
               border: `1px solid rgba(74, 144, 226, 0.1)`,
+              flexShrink: 0, // Prevent shrinking
             }}
           >
             {visualizer.type === "oscilloscope" ? (
@@ -227,16 +232,25 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                overflow: "hidden", // Prevent overflow
+                minHeight: "120px", // Ensure minimum height
+                maxHeight: "200px", // Limit maximum height
               }}
             >
               <div
                 style={{
                   lineHeight: `${LINE_HEIGHT}px`,
-                  width: textBoxWidth - AMPLIKIT_THEME.spacing * 1.5,
+                  width: "100%",
+                  maxWidth: textBoxWidth - AMPLIKIT_THEME.spacing * 3, // More conservative width
                   fontWeight: CAPTIONS_FONT_WEIGHT,
                   fontSize: CAPTIONS_FONT_SIZE,
                   textAlign: "center",
                   fontFamily: AMPLIKIT_THEME.typography.captionFont,
+                  overflow: "hidden", // Prevent text overflow
+                  wordWrap: "break-word", // Break long words
+                  hyphens: "auto", // Allow hyphenation
+                  padding: "0 16px", // Add horizontal padding
+                  boxSizing: "border-box",
                 }}
               >
                 <PaginatedCaptions
@@ -246,7 +260,7 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
                   linesPerPage={LINES_PER_PAGE}
                   subtitlesTextColor={captionsTextColor}
                   onlyDisplayCurrentSentence={onlyDisplayCurrentSentence}
-                  textBoxWidth={textBoxWidth - AMPLIKIT_THEME.spacing * 1.5}
+                  textBoxWidth={textBoxWidth - AMPLIKIT_THEME.spacing * 4} // Even more conservative
                 />
               </div>
             </div>
@@ -258,19 +272,21 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: "16px",
-              padding: "12px 24px",
+              marginTop: "12px", // Reduced margin
+              padding: "8px 16px", // Reduced padding
               backgroundColor: "rgba(255, 107, 53, 0.05)",
               borderRadius: `${AMPLIKIT_THEME.radii.card}px`,
               border: "1px solid rgba(255, 107, 53, 0.1)",
+              flexShrink: 0, // Prevent shrinking
             }}
           >
             <div
               style={{
-                fontSize: "14px",
+                fontSize: "12px", // Reduced font size
                 color: AMPLIKIT_THEME.colors.textSecondary,
                 fontWeight: 500,
                 textAlign: "center",
+                lineHeight: "1.2", // Tighter line height
               }}
             >
               💡 Transforming low-engagement content into viral clips

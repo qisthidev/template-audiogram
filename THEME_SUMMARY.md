@@ -63,7 +63,9 @@
 
 ### Technical Features
 - **Responsive**: Works well at 1080x1080 (Instagram/YouTube square format)
+- **Overflow Protection**: Captions and content properly contained within video bounds
 - **Performance**: Optimized rendering with proper component structure
+- **Text Wrapping**: Automatic word wrapping and hyphenation for long content
 - **Customizable**: Easy to modify colors, fonts, and layout
 - **Scalable**: SVG assets ensure crisp rendering
 
@@ -96,15 +98,19 @@
 
 ### Modified Files
 - `src/Audiogram/theme.ts` - Brand theme configuration
-- `src/Audiogram/Main.tsx` - Main component layout with source credit
+- `src/Audiogram/Main.tsx` - Main component layout with source credit and overflow fixes
 - `src/Audiogram/schema.ts` - Added source credit fields
+- `src/Audiogram/constants.ts` - Optimized font sizes and spacing for better containment
 - `src/Audiogram/font.ts` - Font configuration
 - `src/Audiogram/Spectrum.tsx` - Visualizer color updates
 - `src/Root.tsx` - Default configuration with source credit
 
 ### New Files
 - `public/amplikit-cover.svg` - Branded cover art
+- `public/test-long-captions.json` - Test file for caption overflow scenarios
 - `AMPLIKIT_THEME.md` - Usage documentation
+- `CAPTION_OVERFLOW_FIX.md` - Caption containment solution details
+- `USAGE_EXAMPLE.md` - Detailed usage example
 - `THEME_SUMMARY.md` - This summary
 
 ## 🎯 Next Steps

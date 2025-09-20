@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmpliKIT Insights - Podcast Clips</title>
+    <link rel="stylesheet" href="../src/css/variables.css">
+    <link rel="stylesheet" href="../src/css/base.css">
+    <link rel="stylesheet" href="../src/css/podcast.css">
+    <link rel="stylesheet" href="../src/css/animations.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header animate-fade-in-down">
+        <div class="container">
+            <div class="flex items-center justify-between" style="padding: var(--space-4) 0;">
+                <div class="flex items-center gap-4">
+                    <div class="logo">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--text-xl);">
+                            A
+                        </div>
+                    </div>
+                    <div>
+                        <h1 style="margin: 0; font-size: var(--text-2xl); color: var(--text-primary);">AmpliKIT Insights</h1>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: var(--text-sm);">Podcast Clips & Insights</p>
+                    </div>
+                </div>
+                <nav class="flex items-center gap-6">
+                    <a href="#episodes" class="btn btn-secondary">Episodes</a>
+                    <a href="#playlist" class="btn btn-primary">Play All</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero animate-fade-in-up" style="text-align: center; padding: var(--space-16) 0;">
+                <h2 style="font-size: var(--text-5xl); margin-bottom: var(--space-6); background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                    Amplify Your Knowledge
+                </h2>
+                <p style="font-size: var(--text-xl); color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--space-8);">
+                    Discover powerful insights from our latest podcast episodes. Listen to key moments, share clips, and expand your understanding.
+                </p>
+                <div class="flex items-center justify-center gap-4">
+                    <button class="btn btn-primary hover-lift" onclick="playRandomEpisode()">
+                        <span>🎵</span>
+                        Play Random Episode
+                    </button>
+                    <button class="btn btn-secondary hover-lift" onclick="showPlaylist()">
+                        <span>📋</span>
+                        View Playlist
+                    </button>
+                </div>
+            </section>
+
+            <!-- Audio Player Section -->
+            <section class="player-section animate-fade-in-up" style="margin-bottom: var(--space-16);">
+                <div class="audio-player hover-lift">
+                    <div class="player-header">
+                        <div class="player-avatar">A</div>
+                        <div class="player-info">
+                            <h3>AmpliKIT Insights - Episode 1</h3>
+                            <p>The Future of Technology and Innovation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="waveform-container" onclick="seekTo(event)">
+                        <div class="waveform"></div>
+                        <div class="waveform-progress" style="width: 35%;"></div>
+                    </div>
+                    
+                    <div class="player-controls">
+                        <div class="control-group">
+                            <button class="control-button" onclick="previousTrack()">
+                                <span>⏮️</span>
+                            </button>
+                            <button class="play-button hover-scale" onclick="togglePlay()">
+                                <span id="playIcon">▶️</span>
+                            </button>
+                            <button class="control-button" onclick="nextTrack()">
+                                <span>⏭️</span>
+                            </button>
+                        </div>
+                        
+                        <div class="time-display">
+                            <span class="current-time">2:34</span>
+                            <span>/</span>
+                            <span>7:45</span>
+                        </div>
+                        
+                        <div class="control-group">
+                            <button class="control-button" onclick="toggleMute()">
+                                <span id="volumeIcon">🔊</span>
+                            </button>
+                            <div class="volume-control">
+                                <input type="range" class="volume-slider" min="0" max="100" value="75" onchange="setVolume(this.value)">
+                            </div>
+                            <button class="control-button" onclick="toggleRepeat()">
+                                <span>🔁</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Episodes Grid -->
+            <section id="episodes" class="episodes-section">
+                <h2 style="text-align: center; margin-bottom: var(--space-12); font-size: var(--text-4xl);">Latest Episodes</h2>
+                <div class="episodes-grid stagger-animation" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-8);">
+                    <!-- Episode 1 -->
+                    <div class="episode-card hover-lift" onclick="playEpisode(1)">
+                        <div class="episode-thumbnail">
+                            <span>🚀</span>
+                        </div>
+                        <div class="episode-content">
+                            <h3 class="episode-title">The Future of AI in Business</h3>
+                            <p class="episode-description">
+                                Explore how artificial intelligence is transforming business operations, from automation to decision-making processes. 
+                                Learn about the latest trends and what to expect in the coming years.
+                            </p>
+                            <div class="episode-meta">
+                                <div class="episode-duration">
+                                    <span>⏱️</span>
+                                    <span>12:34</span>
+                                </div>
+                                <div class="episode-date">
+                                    <span>📅</span>
+                                    <span>Dec 15, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Episode 2 -->
+                    <div class="episode-card hover-lift" onclick="playEpisode(2)">
+                        <div class="episode-thumbnail">
+                            <span>💡</span>
+                        </div>
+                        <div class="episode-content">
+                            <h3 class="episode-title">Innovation in Remote Work</h3>
+                            <p class="episode-description">
+                                Discover the latest tools and strategies for effective remote collaboration. 
+                                From virtual reality meetings to AI-powered productivity tools.
+                            </p>
+                            <div class="episode-meta">
+                                <div class="episode-duration">
+                                    <span>⏱️</span>
+                                    <span>9:21</span>
+                                </div>
+                                <div class="episode-date">
+                                    <span>📅</span>
+                                    <span>Dec 12, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Episode 3 -->
+                    <div class="episode-card hover-lift" onclick="playEpisode(3)">
+                        <div class="episode-thumbnail">
+                            <span>🌱</span>
+                        </div>
+                        <div class="episode-content">
+                            <h3 class="episode-title">Sustainable Technology Solutions</h3>
+                            <p class="episode-description">
+                                Learn about green technology initiatives and how companies are reducing their environmental impact 
+                                through innovative tech solutions and sustainable practices.
+                            </p>
+                            <div class="episode-meta">
+                                <div class="episode-duration">
+                                    <span>⏱️</span>
+                                    <span>15:47</span>
+                                </div>
+                                <div class="episode-date">
+                                    <span>📅</span>
+                                    <span>Dec 10, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Episode 4 -->
+                    <div class="episode-card hover-lift" onclick="playEpisode(4)">
+                        <div class="episode-thumbnail">
+                            <span>🔒</span>
+                        </div>
+                        <div class="episode-content">
+                            <h3 class="episode-title">Cybersecurity Best Practices</h3>
+                            <p class="episode-description">
+                                Essential cybersecurity strategies for modern businesses. 
+                                Protect your data and systems with the latest security protocols and threat detection methods.
+                            </p>
+                            <div class="episode-meta">
+                                <div class="episode-duration">
+                                    <span>⏱️</span>
+                                    <span>11:12</span>
+                                </div>
+                                <div class="episode-date">
+                                    <span>📅</span>
+                                    <span>Dec 8, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Episode 5 -->
+                    <div class="episode-card hover-lift" onclick="playEpisode(5)">
+                        <div class="episode-thumbnail">
+                            <span>📊</span>
+                        </div>
+                        <div class="episode-content">
+                            <h3 class="episode-title">Data Analytics for Decision Making</h3>
+                            <p class="episode-description">
+                                Harness the power of data analytics to make informed business decisions. 
+                                Learn about data visualization, predictive modeling, and business intelligence tools.
+                            </p>
+                            <div class="episode-meta">
+                                <div class="episode-duration">
+                                    <span>⏱️</span>
+                                    <span>13:56</span>
+                                </div>
+                                <div class="episode-date">
+                                    <span>📅</span>
+                                    <span>Dec 5, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Episode 6 -->
+                    <div class="episode-card hover-lift" onclick="playEpisode(6)">
+                        <div class="episode-thumbnail">
+                            <span>🎯</span>
+                        </div>
+                        <div class="episode-content">
+                            <h3 class="episode-title">Digital Marketing Trends 2024</h3>
+                            <p class="episode-description">
+                                Stay ahead of the curve with the latest digital marketing trends. 
+                                From AI-powered campaigns to social media strategies that actually work.
+                            </p>
+                            <div class="episode-meta">
+                                <div class="episode-duration">
+                                    <span>⏱️</span>
+                                    <span>10:33</span>
+                                </div>
+                                <div class="episode-date">
+                                    <span>📅</span>
+                                    <span>Dec 3, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Playlist Section -->
+            <section id="playlist" class="playlist-section" style="margin-top: var(--space-20);">
+                <div class="playlist">
+                    <div class="playlist-header">
+                        <h2 class="playlist-title">AmpliKIT Insights Playlist</h2>
+                        <p class="playlist-subtitle">All episodes in one place</p>
+                    </div>
+                    <div class="playlist-items">
+                        <div class="playlist-item active" onclick="playFromPlaylist(0)">
+                            <div class="playlist-item-number">1</div>
+                            <div class="playlist-item-info">
+                                <div class="playlist-item-title">The Future of AI in Business</div>
+                                <div class="playlist-item-meta">12:34 • Dec 15, 2024</div>
+                            </div>
+                        </div>
+                        <div class="playlist-item" onclick="playFromPlaylist(1)">
+                            <div class="playlist-item-number">2</div>
+                            <div class="playlist-item-info">
+                                <div class="playlist-item-title">Innovation in Remote Work</div>
+                                <div class="playlist-item-meta">9:21 • Dec 12, 2024</div>
+                            </div>
+                        </div>
+                        <div class="playlist-item" onclick="playFromPlaylist(2)">
+                            <div class="playlist-item-number">3</div>
+                            <div class="playlist-item-info">
+                                <div class="playlist-item-title">Sustainable Technology Solutions</div>
+                                <div class="playlist-item-meta">15:47 • Dec 10, 2024</div>
+                            </div>
+                        </div>
+                        <div class="playlist-item" onclick="playFromPlaylist(3)">
+                            <div class="playlist-item-number">4</div>
+                            <div class="playlist-item-info">
+                                <div class="playlist-item-title">Cybersecurity Best Practices</div>
+                                <div class="playlist-item-meta">11:12 • Dec 8, 2024</div>
+                            </div>
+                        </div>
+                        <div class="playlist-item" onclick="playFromPlaylist(4)">
+                            <div class="playlist-item-number">5</div>
+                            <div class="playlist-item-info">
+                                <div class="playlist-item-title">Data Analytics for Decision Making</div>
+                                <div class="playlist-item-meta">13:56 • Dec 5, 2024</div>
+                            </div>
+                        </div>
+                        <div class="playlist-item" onclick="playFromPlaylist(5)">
+                            <div class="playlist-item-number">6</div>
+                            <div class="playlist-item-info">
+                                <div class="playlist-item-title">Digital Marketing Trends 2024</div>
+                                <div class="playlist-item-meta">10:33 • Dec 3, 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer animate-fade-in-up" style="background-color: var(--background-dark); color: white; padding: var(--space-16) 0; margin-top: var(--space-20);">
+        <div class="container">
+            <div style="text-align: center;">
+                <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--text-2xl); margin: 0 auto var(--space-6);">
+                    A
+                </div>
+                <h3 style="color: white; margin-bottom: var(--space-4);">AmpliKIT Insights</h3>
+                <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-6);">
+                    Amplifying knowledge through technology insights and innovation.
+                </p>
+                <div class="flex items-center justify-center gap-6">
+                    <a href="#" style="color: rgba(255, 255, 255, 0.7);">YouTube</a>
+                    <a href="#" style="color: rgba(255, 255, 255, 0.7);">Twitter</a>
+                    <a href="#" style="color: rgba(255, 255, 255, 0.7);">LinkedIn</a>
+                    <a href="#" style="color: rgba(255, 255, 255, 0.7);">Website</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../src/js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmpliKIT Insights - Theme Demo</title>
+    <link rel="stylesheet" href="../src/css/variables.css">
+    <link rel="stylesheet" href="../src/css/base.css">
+    <link rel="stylesheet" href="../src/css/podcast.css">
+    <link rel="stylesheet" href="../src/css/animations.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+    <style>
+        .demo-section {
+            margin-bottom: var(--space-16);
+            padding: var(--space-8);
+            background-color: var(--background-secondary);
+            border-radius: var(--radius-xl);
+        }
+        
+        .demo-title {
+            font-size: var(--text-2xl);
+            font-weight: 600;
+            margin-bottom: var(--space-6);
+            color: var(--text-primary);
+        }
+        
+        .component-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-4);
+        }
+        
+        .color-swatch {
+            text-align: center;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            color: white;
+            font-weight: 500;
+            font-size: var(--text-sm);
+        }
+        
+        .typography-demo {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .button-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+            align-items: center;
+        }
+        
+        .animation-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+        }
+        
+        .animation-item {
+            padding: var(--space-4) var(--space-6);
+            background-color: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .animation-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding: var(--space-8) 0;">
+        <!-- Header -->
+        <header class="animate-fade-in-down" style="text-align: center; margin-bottom: var(--space-16);">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--text-3xl); margin: 0 auto var(--space-6);">
+                A
+            </div>
+            <h1 style="font-size: var(--text-5xl); margin-bottom: var(--space-4); background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                AmpliKIT Insights Theme
+            </h1>
+            <p style="font-size: var(--text-xl); color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                A comprehensive demo showcasing all theme components, colors, typography, and animations.
+            </p>
+        </header>
+
+        <!-- Color Palette -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Color Palette</h2>
+            <div class="color-palette">
+                <div class="color-swatch" style="background-color: var(--primary-color);">Primary</div>
+                <div class="color-swatch" style="background-color: var(--primary-dark);">Primary Dark</div>
+                <div class="color-swatch" style="background-color: var(--primary-light);">Primary Light</div>
+                <div class="color-swatch" style="background-color: var(--secondary-color);">Secondary</div>
+                <div class="color-swatch" style="background-color: var(--accent-color);">Accent</div>
+                <div class="color-swatch" style="background-color: var(--success-color);">Success</div>
+                <div class="color-swatch" style="background-color: var(--warning-color);">Warning</div>
+                <div class="color-swatch" style="background-color: var(--error-color);">Error</div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Typography</h2>
+            <div class="typography-demo">
+                <h1>Heading 1 - The Future of Technology</h1>
+                <h2>Heading 2 - Innovation and Progress</h2>
+                <h3>Heading 3 - Digital Transformation</h3>
+                <h4>Heading 4 - AI and Machine Learning</h4>
+                <h5>Heading 5 - Data Analytics</h5>
+                <h6>Heading 6 - Cybersecurity</h6>
+                <p>This is a paragraph with regular text. It demonstrates the body font styling and line height for optimal readability. The text should be comfortable to read across all devices and screen sizes.</p>
+                <p><strong>This is bold text</strong> and <em>this is italic text</em>. We also have <a href="#">linked text</a> that follows the theme's color scheme.</p>
+                <code>This is inline code with monospace font</code>
+                <pre><code>// This is a code block
+function amplifyKnowledge() {
+  return "AmpliKIT Insights";
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Buttons</h2>
+            <div class="button-showcase">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-accent">Accent Button</button>
+                <button class="btn btn-primary" disabled>Disabled Button</button>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Cards</h2>
+            <div class="component-showcase">
+                <div class="card hover-lift">
+                    <h3>Sample Card</h3>
+                    <p>This is a sample card component with hover effects and proper spacing. Cards are perfect for displaying episode information, transcripts, and other content.</p>
+                    <button class="btn btn-primary">Action</button>
+                </div>
+                <div class="card hover-lift">
+                    <h3>Another Card</h3>
+                    <p>Cards can contain various types of content including text, images, buttons, and interactive elements. They provide a clean way to organize information.</p>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Player Demo -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Audio Player</h2>
+            <div class="audio-player hover-lift">
+                <div class="player-header">
+                    <div class="player-avatar">A</div>
+                    <div class="player-info">
+                        <h3>AmpliKIT Insights - Demo Episode</h3>
+                        <p>Theme Showcase and Component Demo</p>
+                    </div>
+                </div>
+                
+                <div class="waveform-container" onclick="seekTo(event)">
+                    <div class="waveform"></div>
+                    <div class="waveform-progress" style="width: 45%;"></div>
+                </div>
+                
+                <div class="player-controls">
+                    <div class="control-group">
+                        <button class="control-button" onclick="previousTrack()">
+                            <span>⏮️</span>
+                        </button>
+                        <button class="play-button hover-scale" onclick="togglePlay()">
+                            <span id="playIcon">▶️</span>
+                        </button>
+                        <button class="control-button" onclick="nextTrack()">
+                            <span>⏭️</span>
+                        </button>
+                    </div>
+                    
+                    <div class="time-display">
+                        <span class="current-time">3:21</span>
+                        <span>/</span>
+                        <span>7:45</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <button class="control-button" onclick="toggleMute()">
+                            <span id="volumeIcon">🔊</span>
+                        </button>
+                        <div class="volume-control">
+                            <input type="range" class="volume-slider" min="0" max="100" value="75" onchange="setVolume(this.value)">
+                        </div>
+                        <button class="control-button" onclick="toggleRepeat()">
+                            <span>🔁</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Episode Cards -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Episode Cards</h2>
+            <div class="component-showcase">
+                <div class="episode-card hover-lift" onclick="playEpisode(1)">
+                    <div class="episode-thumbnail">
+                        <span>🚀</span>
+                    </div>
+                    <div class="episode-content">
+                        <h3 class="episode-title">AI Revolution in Business</h3>
+                        <p class="episode-description">
+                            Explore how artificial intelligence is transforming business operations and what to expect in the future.
+                        </p>
+                        <div class="episode-meta">
+                            <div class="episode-duration">
+                                <span>⏱️</span>
+                                <span>12:34</span>
+                            </div>
+                            <div class="episode-date">
+                                <span>📅</span>
+                                <span>Dec 15, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="episode-card hover-lift" onclick="playEpisode(2)">
+                    <div class="episode-thumbnail">
+                        <span>💡</span>
+                    </div>
+                    <div class="episode-content">
+                        <h3 class="episode-title">Innovation in Remote Work</h3>
+                        <p class="episode-description">
+                            Discover the latest tools and strategies for effective remote collaboration and productivity.
+                        </p>
+                        <div class="episode-meta">
+                            <div class="episode-duration">
+                                <span>⏱️</span>
+                                <span>9:21</span>
+                            </div>
+                            <div class="episode-date">
+                                <span>📅</span>
+                                <span>Dec 12, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animations -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Animations</h2>
+            <div class="animation-demo">
+                <div class="animation-item animate-fade-in" onclick="this.classList.toggle('animate-pulse')">
+                    Fade In
+                </div>
+                <div class="animation-item animate-scale-in" onclick="this.classList.toggle('animate-bounce')">
+                    Scale In
+                </div>
+                <div class="animation-item hover-lift" onclick="this.classList.toggle('animate-glow')">
+                    Hover Lift
+                </div>
+                <div class="animation-item hover-scale" onclick="this.classList.toggle('animate-shimmer')">
+                    Hover Scale
+                </div>
+                <div class="animation-item hover-glow" onclick="this.classList.toggle('animate-spin')">
+                    Hover Glow
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading States -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Loading States</h2>
+            <div class="component-showcase">
+                <div style="text-align: center;">
+                    <div class="loading-spinner" style="margin: 0 auto var(--space-4);"></div>
+                    <p>Loading Spinner</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="loading-dots" style="margin: 0 auto var(--space-4);">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>Loading Dots</p>
+                </div>
+                <div style="text-align: center;">
+                    <div class="loading-skeleton" style="width: 200px; height: 100px; margin: 0 auto var(--space-4);"></div>
+                    <p>Loading Skeleton</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Bars -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Progress Bars</h2>
+            <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 25%;"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Elements -->
+        <section class="demo-section animate-fade-in-up">
+            <h2 class="demo-title">Form Elements</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6);">
+                <div>
+                    <label style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Text Input</label>
+                    <input type="text" placeholder="Enter your text here" style="margin-bottom: var(--space-4);">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Email Input</label>
+                    <input type="email" placeholder="your@email.com" style="margin-bottom: var(--space-4);">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Select</label>
+                    <select style="margin-bottom: var(--space-4);">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: var(--space-2); font-weight: 500;">Textarea</label>
+                    <textarea placeholder="Enter your message here" rows="3" style="margin-bottom: var(--space-4);"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; margin-top: var(--space-20); padding: var(--space-16) 0; background-color: var(--background-dark); color: white; border-radius: var(--radius-2xl);">
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: var(--text-2xl); margin: 0 auto var(--space-6);">
+                A
+            </div>
+            <h3 style="color: white; margin-bottom: var(--space-4);">AmpliKIT Insights Theme</h3>
+            <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: var(--space-6);">
+                A comprehensive theme for podcast clipping and YouTube content creation.
+            </p>
+            <div class="flex items-center justify-center gap-6">
+                <a href="templates/main.html" style="color: rgba(255, 255, 255, 0.7);">Main Template</a>
+                <a href="templates/clip.html" style="color: rgba(255, 255, 255, 0.7);">Clip Template</a>
+                <a href="README.md" style="color: rgba(255, 255, 255, 0.7);">Documentation</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="../src/js/theme.js"></script>
+</body>
+</html>

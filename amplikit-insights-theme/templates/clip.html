@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmpliKIT Insights - Podcast Clip</title>
+    <link rel="stylesheet" href="../src/css/variables.css">
+    <link rel="stylesheet" href="../src/css/base.css">
+    <link rel="stylesheet" href="../src/css/podcast.css">
+    <link rel="stylesheet" href="../src/css/animations.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎙️</text></svg>">
+    <style>
+        .clip-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--space-8);
+        }
+        
+        .clip-header {
+            text-align: center;
+            margin-bottom: var(--space-12);
+        }
+        
+        .clip-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .clip-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-6);
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+        
+        .clip-player {
+            margin-bottom: var(--space-12);
+        }
+        
+        .clip-transcript {
+            background-color: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+        
+        .transcript-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: var(--space-6);
+        }
+        
+        .transcript-text {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-size: var(--text-lg);
+        }
+        
+        .highlight {
+            background-color: rgba(37, 99, 235, 0.1);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+        
+        .share-button {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+        
+        .share-twitter {
+            background-color: #1da1f2;
+            color: white;
+        }
+        
+        .share-linkedin {
+            background-color: #0077b5;
+            color: white;
+        }
+        
+        .share-youtube {
+            background-color: #ff0000;
+            color: white;
+        }
+        
+        .share-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .related-clips {
+            margin-top: var(--space-16);
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .related-clip {
+            background-color: var(--background-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+        
+        .related-clip:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .related-thumbnail {
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: var(--text-2xl);
+        }
+        
+        .related-content {
+            padding: var(--space-4);
+        }
+        
+        .related-title {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+        }
+        
+        .related-duration {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="clip-container">
+        <!-- Clip Header -->
+        <header class="clip-header animate-fade-in-down">
+            <h1 class="clip-title">The Future of AI in Business</h1>
+            <div class="clip-meta">
+                <span>🎙️ AmpliKIT Insights</span>
+                <span>⏱️ 2:34</span>
+                <span>📅 Dec 15, 2024</span>
+                <span>👁️ 1.2K views</span>
+            </div>
+        </header>
+
+        <!-- Clip Player -->
+        <section class="clip-player animate-fade-in-up">
+            <div class="audio-player hover-lift">
+                <div class="player-header">
+                    <div class="player-avatar">A</div>
+                    <div class="player-info">
+                        <h3>AmpliKIT Insights - Episode 1</h3>
+                        <p>AI Revolution in Business Operations</p>
+                    </div>
+                </div>
+                
+                <div class="waveform-container" onclick="seekTo(event)">
+                    <div class="waveform"></div>
+                    <div class="waveform-progress" style="width: 0%;"></div>
+                </div>
+                
+                <div class="player-controls">
+                    <div class="control-group">
+                        <button class="control-button" onclick="previousTrack()">
+                            <span>⏮️</span>
+                        </button>
+                        <button class="play-button hover-scale" onclick="togglePlay()">
+                            <span id="playIcon">▶️</span>
+                        </button>
+                        <button class="control-button" onclick="nextTrack()">
+                            <span>⏭️</span>
+                        </button>
+                    </div>
+                    
+                    <div class="time-display">
+                        <span class="current-time">0:00</span>
+                        <span>/</span>
+                        <span>2:34</span>
+                    </div>
+                    
+                    <div class="control-group">
+                        <button class="control-button" onclick="toggleMute()">
+                            <span id="volumeIcon">🔊</span>
+                        </button>
+                        <div class="volume-control">
+                            <input type="range" class="volume-slider" min="0" max="100" value="75" onchange="setVolume(this.value)">
+                        </div>
+                        <button class="control-button" onclick="toggleRepeat()">
+                            <span>🔁</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transcript -->
+        <section class="clip-transcript animate-fade-in-up">
+            <div class="transcript-header">
+                <h3 style="margin: 0; color: var(--text-primary);">Transcript</h3>
+                <button class="btn btn-secondary" onclick="toggleTranscript()">
+                    <span id="transcriptToggle">Hide</span>
+                </button>
+            </div>
+            <div class="transcript-text" id="transcriptContent">
+                <p>
+                    "The integration of artificial intelligence into business operations is no longer a futuristic concept—it's happening right now. 
+                    Companies are leveraging AI to <span class="highlight">automate routine tasks</span>, enhance decision-making processes, 
+                    and create more personalized customer experiences."
+                </p>
+                <p>
+                    "What's particularly exciting is how AI is transforming data analysis. Instead of spending weeks analyzing market trends, 
+                    businesses can now get <span class="highlight">real-time insights</span> that drive immediate action. 
+                    This isn't just about efficiency—it's about staying competitive in an increasingly data-driven world."
+                </p>
+                <p>
+                    "The key to successful AI implementation lies in understanding that it's not about replacing human intelligence, 
+                    but augmenting it. The most successful companies are those that use AI to <span class="highlight">amplify human capabilities</span>, 
+                    allowing teams to focus on strategic thinking and creative problem-solving."
+                </p>
+            </div>
+        </section>
+
+        <!-- Share Buttons -->
+        <section class="share-buttons animate-fade-in-up">
+            <a href="#" class="share-button share-twitter" onclick="shareOnTwitter()">
+                <span>🐦</span>
+                <span>Share on Twitter</span>
+            </a>
+            <a href="#" class="share-button share-linkedin" onclick="shareOnLinkedIn()">
+                <span>💼</span>
+                <span>Share on LinkedIn</span>
+            </a>
+            <a href="#" class="share-button share-youtube" onclick="shareOnYouTube()">
+                <span>📺</span>
+                <span>Share on YouTube</span>
+            </a>
+        </section>
+
+        <!-- Related Clips -->
+        <section class="related-clips animate-fade-in-up">
+            <h3 style="text-align: center; margin-bottom: var(--space-8); font-size: var(--text-2xl);">Related Clips</h3>
+            <div class="related-grid">
+                <div class="related-clip hover-lift" onclick="playRelatedClip(1)">
+                    <div class="related-thumbnail">🤖</div>
+                    <div class="related-content">
+                        <div class="related-title">Machine Learning in Marketing</div>
+                        <div class="related-duration">1:45</div>
+                    </div>
+                </div>
+                <div class="related-clip hover-lift" onclick="playRelatedClip(2)">
+                    <div class="related-thumbnail">📊</div>
+                    <div class="related-content">
+                        <div class="related-title">Data-Driven Decision Making</div>
+                        <div class="related-duration">2:12</div>
+                    </div>
+                </div>
+                <div class="related-clip hover-lift" onclick="playRelatedClip(3)">
+                    <div class="related-thumbnail">🔮</div>
+                    <div class="related-content">
+                        <div class="related-title">Predictive Analytics</div>
+                        <div class="related-duration">1:58</div>
+                    </div>
+                </div>
+                <div class="related-clip hover-lift" onclick="playRelatedClip(4)">
+                    <div class="related-thumbnail">🎯</div>
+                    <div class="related-content">
+                        <div class="related-title">AI-Powered Automation</div>
+                        <div class="related-duration">2:07</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../src/js/theme.js"></script>
+    <script>
+        // Clip-specific functionality
+        function toggleTranscript() {
+            const content = document.getElementById('transcriptContent');
+            const toggle = document.getElementById('transcriptToggle');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                toggle.textContent = 'Hide';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = 'Show';
+            }
+        }
+
+        function shareOnTwitter() {
+            const text = "Check out this insightful clip from AmpliKIT Insights about AI in business!";
+            const url = window.location.href;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = window.location.href;
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnYouTube() {
+            // In a real implementation, this would link to the YouTube video
+            alert('YouTube sharing functionality would be implemented here');
+        }
+
+        function playRelatedClip(clipId) {
+            // In a real implementation, this would load the related clip
+            console.log(`Playing related clip ${clipId}`);
+            // You could implement actual audio loading here
+        }
+    </script>
+</body>
+</html>

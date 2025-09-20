@@ -1,0 +1,27 @@
+{
+  "name": "amplikit-insights-theme",
+  "version": "1.0.0",
+  "description": "Professional theme for AmpliKIT Insights podcast clipping and YouTube content",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/templates/main.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o dist/css/theme.min.css src/css/*.css",
+    "minify-js": "uglifyjs src/js/*.js -o dist/js/theme.min.js"
+  },
+  "keywords": [
+    "podcast",
+    "youtube",
+    "theme",
+    "amplikit",
+    "insights",
+    "clipping"
+  ],
+  "author": "AmpliKIT Insights",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "clean-css-cli": "^5.6.2",
+    "uglify-js": "^3.17.4"
+  }
+}

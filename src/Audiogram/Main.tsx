@@ -1,18 +1,13 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, useVideoConfig } from "remotion";
 
-import { PaginatedCaptions } from "./Captions";
 import { Spectrum } from "./Spectrum";
-import {
-  CAPTIONS_FONT_SIZE,
-  CAPTIONS_FONT_WEIGHT,
-  LINE_HEIGHT,
-  LINES_PER_PAGE,
-} from "./constants";
+import { LINES_PER_PAGE } from "./constants";
 import { Oscilloscope } from "./Oscilloscope";
 import { WaitForFonts } from "./WaitForFonts";
 import { AudiogramCompositionSchemaType } from "./schema";
 import { AMPLIKIT_THEME } from "./theme";
+import { DynamicCaptions } from "./DynamicCaptions";
 
 export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
   visualizer,
@@ -27,7 +22,7 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
   audioOffsetInSeconds,
   captions,
 }) => {
-  const { durationInFrames, fps, width } = useVideoConfig();
+  const { durationInFrames, fps, width, height } = useVideoConfig();
 
   if (!captions) {
     throw new Error(
@@ -39,6 +34,16 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
   const baseNumberOfSamples = Number(visualizer.numberOfSamples);
 
   const textBoxWidth = width - AMPLIKIT_THEME.spacing * 2;
+  
+  // Calculate available height for captions
+  const headerHeight = 60; // Approximate header height
+  const contentCardHeight = 200; // Approximate content card height  
+  const visualizerHeight = 120; // Approximate visualizer height
+  const footerHeight = 50; // Approximate footer height
+  const totalSpacing = AMPLIKIT_THEME.spacing * 3; // Spacing between sections
+  const containerPadding = AMPLIKIT_THEME.spacing * 2; // Top and bottom padding
+  
+  const availableCaptionHeight = height - headerHeight - contentCardHeight - visualizerHeight - footerHeight - totalSpacing - containerPadding;
 
   return (
     <AbsoluteFill>
@@ -228,41 +233,24 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
                 borderRadius: `${AMPLIKIT_THEME.radii.card}px`,
                 padding: `${AMPLIKIT_THEME.spacing * 0.75}px`,
                 border: `1px solid rgba(255, 107, 53, 0.1)`,
-                flex: 1,
+                flex: 1, // Take remaining space
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                overflow: "hidden", // Prevent overflow
-                minHeight: "120px", // Ensure minimum height
-                maxHeight: "200px", // Limit maximum height
+                overflow: "hidden",
+                height: "100%", // Use full available height
               }}
             >
-              <div
-                style={{
-                  lineHeight: `${LINE_HEIGHT}px`,
-                  width: "100%",
-                  maxWidth: textBoxWidth - AMPLIKIT_THEME.spacing * 3, // More conservative width
-                  fontWeight: CAPTIONS_FONT_WEIGHT,
-                  fontSize: CAPTIONS_FONT_SIZE,
-                  textAlign: "center",
-                  fontFamily: AMPLIKIT_THEME.typography.captionFont,
-                  overflow: "hidden", // Prevent text overflow
-                  wordWrap: "break-word", // Break long words
-                  hyphens: "auto", // Allow hyphenation
-                  padding: "0 16px", // Add horizontal padding
-                  boxSizing: "border-box",
-                }}
-              >
-                <PaginatedCaptions
-                  captions={captions}
-                  startFrame={audioOffsetInFrames}
-                  endFrame={audioOffsetInFrames + durationInFrames}
-                  linesPerPage={LINES_PER_PAGE}
-                  subtitlesTextColor={captionsTextColor}
-                  onlyDisplayCurrentSentence={onlyDisplayCurrentSentence}
-                  textBoxWidth={textBoxWidth - AMPLIKIT_THEME.spacing * 4} // Even more conservative
-                />
-              </div>
+              <DynamicCaptions
+                captions={captions}
+                startFrame={audioOffsetInFrames}
+                endFrame={audioOffsetInFrames + durationInFrames}
+                linesPerPage={LINES_PER_PAGE}
+                subtitlesTextColor={captionsTextColor}
+                onlyDisplayCurrentSentence={onlyDisplayCurrentSentence}
+                textBoxWidth={textBoxWidth - AMPLIKIT_THEME.spacing * 4}
+                containerHeight={availableCaptionHeight}
+              />
             </div>
           </WaitForFonts>
 

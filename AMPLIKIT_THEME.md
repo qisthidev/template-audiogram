@@ -21,7 +21,8 @@ This is a custom theme for creating branded audiograms that transform low-engage
 - **Source Credit**: Highlighted attribution to original podcast
 - **Repurposing Message**: Clear indication of content transformation
 - **Cover Art**: Branded placeholder with professional audio waveform design
-- **Caption Area**: Centered, easy-to-read text with proper spacing
+- **Dynamic Caption Area**: Auto-sizing text that uses 100% of available height
+- **Smart Font Scaling**: Text size adapts to content length and container dimensions
 - **Footer**: Motivational message about transforming content
 
 ### 📝 Typography

@@ -63,8 +63,11 @@
 
 ### Technical Features
 - **Responsive**: Works well at 1080x1080 (Instagram/YouTube square format)
+- **Dynamic Font Sizing**: Automatically adjusts text size based on content and container dimensions
+- **100% Height Usage**: Caption area utilizes all available vertical space
+- **Content-Aware Scaling**: Font size adapts to caption length for optimal readability
 - **Overflow Protection**: Captions and content properly contained within video bounds
-- **Performance**: Optimized rendering with proper component structure
+- **Performance**: Optimized rendering with memoized calculations
 - **Text Wrapping**: Automatic word wrapping and hyphenation for long content
 - **Customizable**: Easy to modify colors, fonts, and layout
 - **Scalable**: SVG assets ensure crisp rendering
@@ -107,9 +110,13 @@
 
 ### New Files
 - `public/amplikit-cover.svg` - Branded cover art
-- `public/test-long-captions.json` - Test file for caption overflow scenarios
+- `public/test-long-captions.json` - Test file for long caption scenarios
+- `public/short-captions.json` - Test file for short caption scenarios
+- `public/medium-captions.json` - Test file for medium caption scenarios
+- `src/Audiogram/DynamicCaptions.tsx` - Dynamic font sizing caption component
 - `AMPLIKIT_THEME.md` - Usage documentation
 - `CAPTION_OVERFLOW_FIX.md` - Caption containment solution details
+- `DYNAMIC_CAPTION_SYSTEM.md` - Dynamic sizing system documentation
 - `USAGE_EXAMPLE.md` - Detailed usage example
 - `THEME_SUMMARY.md` - This summary
 

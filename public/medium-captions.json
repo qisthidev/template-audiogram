@@ -1,0 +1,17 @@
+[
+  {
+    "start": 0,
+    "end": 4000,
+    "text": "This is a medium-length caption that contains a reasonable amount of text for testing."
+  },
+  {
+    "start": 4000,
+    "end": 8000,
+    "text": "Another moderately sized caption that should display well with dynamic sizing."
+  },
+  {
+    "start": 8000,
+    "end": 12000,
+    "text": "Testing how the system handles typical podcast transcript content lengths."
+  }
+]

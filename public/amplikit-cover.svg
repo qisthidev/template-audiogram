@@ -1,0 +1,83 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0B0E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A1D23;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A90E2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#bgGradient)" rx="20"/>
+  
+  <!-- Audio waveform visualization -->
+  <g transform="translate(50, 200)">
+    <!-- Multiple wave bars to create spectrum effect -->
+    <rect x="0" y="-30" width="4" height="60" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="8" y="-45" width="4" height="90" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="16" y="-25" width="4" height="50" fill="url(#waveGradient)" opacity="0.7"/>
+    <rect x="24" y="-55" width="4" height="110" fill="url(#waveGradient)" opacity="1"/>
+    <rect x="32" y="-35" width="4" height="70" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="40" y="-40" width="4" height="80" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="48" y="-20" width="4" height="40" fill="url(#waveGradient)" opacity="0.6"/>
+    <rect x="56" y="-50" width="4" height="100" fill="url(#waveGradient)" opacity="0.95"/>
+    <rect x="64" y="-30" width="4" height="60" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="72" y="-35" width="4" height="70" fill="url(#waveGradient)" opacity="0.85"/>
+    <rect x="80" y="-45" width="4" height="90" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="88" y="-25" width="4" height="50" fill="url(#waveGradient)" opacity="0.7"/>
+    <rect x="96" y="-60" width="4" height="120" fill="url(#waveGradient)" opacity="1"/>
+    <rect x="104" y="-40" width="4" height="80" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="112" y="-30" width="4" height="60" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="120" y="-35" width="4" height="70" fill="url(#waveGradient)" opacity="0.85"/>
+    <rect x="128" y="-20" width="4" height="40" fill="url(#waveGradient)" opacity="0.6"/>
+    <rect x="136" y="-45" width="4" height="90" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="144" y="-55" width="4" height="110" fill="url(#waveGradient)" opacity="0.95"/>
+    <rect x="152" y="-25" width="4" height="50" fill="url(#waveGradient)" opacity="0.7"/>
+    <rect x="160" y="-40" width="4" height="80" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="168" y="-30" width="4" height="60" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="176" y="-35" width="4" height="70" fill="url(#waveGradient)" opacity="0.85"/>
+    <rect x="184" y="-50" width="4" height="100" fill="url(#waveGradient)" opacity="0.95"/>
+    <rect x="192" y="-25" width="4" height="50" fill="url(#waveGradient)" opacity="0.7"/>
+    <rect x="200" y="-45" width="4" height="90" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="208" y="-30" width="4" height="60" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="216" y="-40" width="4" height="80" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="224" y="-20" width="4" height="40" fill="url(#waveGradient)" opacity="0.6"/>
+    <rect x="232" y="-35" width="4" height="70" fill="url(#waveGradient)" opacity="0.85"/>
+    <rect x="240" y="-55" width="4" height="110" fill="url(#waveGradient)" opacity="0.95"/>
+    <rect x="248" y="-25" width="4" height="50" fill="url(#waveGradient)" opacity="0.7"/>
+    <rect x="256" y="-45" width="4" height="90" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="264" y="-30" width="4" height="60" fill="url(#waveGradient)" opacity="0.8"/>
+    <rect x="272" y="-40" width="4" height="80" fill="url(#waveGradient)" opacity="0.9"/>
+    <rect x="280" y="-35" width="4" height="70" fill="url(#waveGradient)" opacity="0.85"/>
+    <rect x="288" y="-25" width="4" height="50" fill="url(#waveGradient)" opacity="0.7"/>
+    <rect x="296" y="-50" width="4" height="100" fill="url(#waveGradient)" opacity="0.95"/>
+  </g>
+  
+  <!-- Brand text -->
+  <text x="200" y="120" text-anchor="middle" fill="#FF6B35" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700" filter="url(#glow)">AmpliKIT</text>
+  <text x="200" y="150" text-anchor="middle" fill="#4A90E2" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Insights</text>
+  
+  <!-- Tagline -->
+  <text x="200" y="300" text-anchor="middle" fill="#B8BCC3" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">REPURPOSING LOW-ENGAGEMENT</text>
+  <text x="200" y="320" text-anchor="middle" fill="#B8BCC3" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">PODCAST CONTENT</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="80" cy="80" r="3" fill="#FF6B35" opacity="0.6"/>
+  <circle cx="320" cy="80" r="3" fill="#4A90E2" opacity="0.6"/>
+  <circle cx="80" cy="320" r="3" fill="#4A90E2" opacity="0.6"/>
+  <circle cx="320" cy="320" r="3" fill="#FF6B35" opacity="0.6"/>
+</svg>

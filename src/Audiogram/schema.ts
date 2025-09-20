@@ -34,6 +34,9 @@ export const audiogramSchema = z.object({
   coverImageUrl: z.string(),
   titleText: z.string(),
   titleColor: zColor(),
+  // source credit
+  sourceCredit: z.string().optional(),
+  sourceCreditColor: zColor().optional(),
   // captions settings
   captionsFileName: z
     .string()

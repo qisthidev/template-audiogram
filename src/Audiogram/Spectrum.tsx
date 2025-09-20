@@ -2,7 +2,7 @@ import { visualizeAudio } from "@remotion/media-utils";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { useWindowedAudioDataIfPossible } from "../helpers/use-windowed-audio-data-if-possible";
 import { AudioVizContainer } from "./AudioVizContainer";
-import { FASTSTACK_THEME } from "./theme";
+import { AMPLIKIT_THEME } from "./theme";
 import { BASE_SIZE } from "./constants";
 
 const Bar: React.FC<{ height: number; color: string }> = ({
@@ -13,8 +13,8 @@ const Bar: React.FC<{ height: number; color: string }> = ({
     borderRadius: `${BASE_SIZE * 0.5}px`,
     width: `${BASE_SIZE * 0.5}px`,
     height: `${height}px`,
-    backgroundImage: `linear-gradient(180deg, ${FASTSTACK_THEME.colors.waveGradientStart}, ${FASTSTACK_THEME.colors.waveGradientEnd})`,
-    boxShadow: `0 8px 24px ${FASTSTACK_THEME.colors.glow}`,
+    backgroundImage: `linear-gradient(180deg, ${color || AMPLIKIT_THEME.colors.waveGradientStart}, ${AMPLIKIT_THEME.colors.waveGradientEnd})`,
+    boxShadow: `0 8px 24px ${AMPLIKIT_THEME.colors.glow}`,
   };
 
   return <div style={barStyle} />;

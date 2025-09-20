@@ -4,7 +4,7 @@ import { audiogramSchema } from "./Audiogram/schema";
 import { getSubtitles } from "./helpers/fetch-captions";
 import { FPS } from "./helpers/ms-to-frame";
 import { parseMedia } from "@remotion/media-parser";
-import { FASTSTACK_THEME } from "./Audiogram/theme";
+import { AMPLIKIT_THEME } from "./Audiogram/theme";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -20,23 +20,25 @@ export const RemotionRoot: React.FC = () => {
           audioOffsetInSeconds: 0,
           audioFileUrl: staticFile("audio.wav"),
           // podcast data
-          coverImageUrl: staticFile("podcast-cover.png"),
-          titleText: "FastStack",
-          titleColor: FASTSTACK_THEME.colors.textPrimary,
+          coverImageUrl: staticFile("amplikit-cover.svg"),
+          titleText: "AmpliKIT Insights",
+          titleColor: AMPLIKIT_THEME.colors.textPrimary,
+          // source credit
+          sourceCredit: "Original Podcast Name",
+          sourceCreditColor: AMPLIKIT_THEME.colors.primary,
           // captions settings
           captions: null,
           captionsFileName: staticFile("captions.json"),
           onlyDisplayCurrentSentence: true,
-          captionsTextColor: FASTSTACK_THEME.colors.captionText,
+          captionsTextColor: AMPLIKIT_THEME.colors.captionText,
           // visualizer settings
           visualizer: {
-            type: "oscilloscope",
-            color: "",
-            numberOfSamples: "64" as const,
-            windowInSeconds: 0.1,
-            posterization: 3,
-            amplitude: 4,
-            padding: 50,
+            type: "spectrum",
+            color: AMPLIKIT_THEME.colors.waveGradientStart,
+            numberOfSamples: "128" as const,
+            mirrorWave: true,
+            freqRangeStartIndex: 5,
+            linesToDisplay: 65,
           },
         }}
         // Determine the length of the video based on the duration of the audio file

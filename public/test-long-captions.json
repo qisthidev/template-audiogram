@@ -1,0 +1,22 @@
+[
+  {
+    "start": 0,
+    "end": 5000,
+    "text": "This is a very long caption that tests whether the text properly wraps and stays within the bounds of the video container without expanding outside the rendered layer."
+  },
+  {
+    "start": 5000,
+    "end": 10000,
+    "text": "Another extremely long caption with supercalifragilisticexpialidocious words that might cause overflow issues if not properly contained within the designated text area boundaries."
+  },
+  {
+    "start": 10000,
+    "end": 15000,
+    "text": "Testing word wrapping with multiple sentences. This should demonstrate how the caption system handles long text content. Each line should wrap properly without exceeding the container boundaries."
+  },
+  {
+    "start": 15000,
+    "end": 20000,
+    "text": "Final test of the caption overflow prevention system with a really long sentence that goes on and on to ensure everything stays contained."
+  }
+]

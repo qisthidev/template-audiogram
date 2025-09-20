@@ -20,6 +20,8 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
   coverImageUrl,
   titleText,
   titleColor,
+  sourceCredit,
+  sourceCreditColor,
   captionsTextColor,
   onlyDisplayCurrentSentence,
   audioOffsetInSeconds,
@@ -157,10 +159,27 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
                   fontSize: "18px",
                   color: AMPLIKIT_THEME.colors.textSecondary,
                   fontWeight: 500,
+                  marginBottom: "8px",
                 }}
               >
-                Podcast Insights • Audio Clip
+                Repurposed Content • Boosting Engagement
               </div>
+              {sourceCredit && (
+                <div
+                  style={{
+                    fontSize: "14px",
+                    color: sourceCreditColor || AMPLIKIT_THEME.colors.primary,
+                    fontWeight: 600,
+                    backgroundColor: "rgba(255, 107, 53, 0.1)",
+                    padding: "4px 12px",
+                    borderRadius: "8px",
+                    border: `1px solid rgba(255, 107, 53, 0.3)`,
+                    display: "inline-block",
+                  }}
+                >
+                  Source: {sourceCredit}
+                </div>
+              )}
             </div>
           </div>
 
@@ -232,6 +251,31 @@ export const Audiogram: React.FC<AudiogramCompositionSchemaType> = ({
               </div>
             </div>
           </WaitForFonts>
+
+          {/* Footer with repurposing message */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: "16px",
+              padding: "12px 24px",
+              backgroundColor: "rgba(255, 107, 53, 0.05)",
+              borderRadius: `${AMPLIKIT_THEME.radii.card}px`,
+              border: "1px solid rgba(255, 107, 53, 0.1)",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "14px",
+                color: AMPLIKIT_THEME.colors.textSecondary,
+                fontWeight: 500,
+                textAlign: "center",
+              }}
+            >
+              💡 Transforming low-engagement content into viral clips
+            </div>
+          </div>
         </div>
       </Sequence>
     </AbsoluteFill>

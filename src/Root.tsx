@@ -23,6 +23,9 @@ export const RemotionRoot: React.FC = () => {
           coverImageUrl: staticFile("amplikit-cover.svg"),
           titleText: "AmpliKIT Insights",
           titleColor: AMPLIKIT_THEME.colors.textPrimary,
+          // source credit
+          sourceCredit: "Original Podcast Name",
+          sourceCreditColor: AMPLIKIT_THEME.colors.primary,
           // captions settings
           captions: null,
           captionsFileName: staticFile("captions.json"),

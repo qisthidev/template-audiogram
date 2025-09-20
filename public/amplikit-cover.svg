@@ -72,8 +72,8 @@
   <text x="200" y="150" text-anchor="middle" fill="#4A90E2" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Insights</text>
   
   <!-- Tagline -->
-  <text x="200" y="300" text-anchor="middle" fill="#B8BCC3" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">PODCAST INSIGHTS</text>
-  <text x="200" y="320" text-anchor="middle" fill="#B8BCC3" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">AUDIO CLIPS</text>
+  <text x="200" y="300" text-anchor="middle" fill="#B8BCC3" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">REPURPOSING LOW-ENGAGEMENT</text>
+  <text x="200" y="320" text-anchor="middle" fill="#B8BCC3" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">PODCAST CONTENT</text>
   
   <!-- Decorative elements -->
   <circle cx="80" cy="80" r="3" fill="#FF6B35" opacity="0.6"/>

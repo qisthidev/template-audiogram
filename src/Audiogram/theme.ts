@@ -1,4 +1,4 @@
-export type FastStackTheme = {
+export type AmpliKitTheme = {
   brandName: string;
   colors: {
     background: string;
@@ -11,30 +11,46 @@ export type FastStackTheme = {
     waveGradientStart: string;
     waveGradientEnd: string;
     glow: string;
+    brandOrange: string;
+    brandBlue: string;
   };
   spacing: number;
   radii: {
     card: number;
   };
+  typography: {
+    brandFont: string;
+    captionFont: string;
+  };
 };
 
-export const FASTSTACK_THEME: FastStackTheme = {
-  brandName: "FastStack",
+export const AMPLIKIT_THEME: AmpliKitTheme = {
+  brandName: "AmpliKIT Insights",
   colors: {
-    background: "#0B0D12",
-    surface: "#12151D",
-    primary: "#0AE2FF",
-    primaryAccent: "#7C4DFF",
-    textPrimary: "#E6E8F0",
-    textSecondary: "#A4A9B6",
-    captionText: "rgba(230, 232, 240, 0.92)",
-    waveGradientStart: "#0AE2FF",
-    waveGradientEnd: "#7C4DFF",
-    glow: "rgba(10, 226, 255, 0.45)",
+    background: "#0A0B0E",
+    surface: "#1A1D23",
+    primary: "#FF6B35", // Vibrant orange for audio/sound theme
+    primaryAccent: "#4A90E2", // Professional blue
+    textPrimary: "#F8F9FA",
+    textSecondary: "#B8BCC3",
+    captionText: "rgba(248, 249, 250, 0.95)",
+    waveGradientStart: "#FF6B35",
+    waveGradientEnd: "#4A90E2",
+    glow: "rgba(255, 107, 53, 0.4)",
+    brandOrange: "#FF6B35",
+    brandBlue: "#4A90E2",
   },
   spacing: 48,
   radii: {
-    card: 12,
+    card: 16,
+  },
+  typography: {
+    brandFont: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    captionFont: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
   },
 };
+
+// Keep the old theme for backward compatibility
+export type FastStackTheme = AmpliKitTheme;
+export const FASTSTACK_THEME: FastStackTheme = AMPLIKIT_THEME;
 

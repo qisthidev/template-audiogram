@@ -1,7 +1,7 @@
-import { loadFont, fontFamily } from "@remotion/google-fonts/IBMPlexSans";
+import { loadFont, fontFamily } from "@remotion/google-fonts/Inter";
 
 const loading = loadFont("normal", {
-  weights: ["500", "600"],
+  weights: ["400", "500", "600", "700", "800"],
 });
 
 export const FONT_FAMILY = fontFamily;
